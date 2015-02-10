@@ -1,0 +1,84 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <title>Canyon County - Current Arrests</title>
+  <style type="text/css">.a {text-decoration:underline; cursor:pointer;}</style>
+  <style type="text/css">
+  table.jail {margin-top: 30px;border: 1px solid lightgray;}
+  table.jail td {padding: 4px;vertical-align: top;border: 1px solid lightgray;}
+  table.jail th { text-align: left;  font-weight: bold;}
+  table.charge {margin-top:0px; vertical-align:top;}
+  table.arrest {margin-top:0px; vertical-align:top;}
+  table tr:nth-child(even) {background-color:#e5e5e5;}
+  table tr:nth-child(odd) {background-color:#fff;}
+  /*
+  table.charge tr:nth-child(odd) {background-color:#e1e1e1;}
+  table.charge tr:nth-child(even) {background-color:#aaa;}
+  table.arrest tr:nth-child(odd) {background-color:#e1e1e1;}
+  table.arrest tr:nth-child(even) {background-color:#aaa;}
+  */
+  img {border-width:2px;border-style:solid;}
+  </style>
+  <!-- This was tested with jQuery 1.11.2 and 2.1.3 -->
+  <!--<script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>-->
+  <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+</head>
+<body>
+  <div>
+    <h1>Current Arrests</h1>
+    <p>The following people are/were housed in the Canyon County Jail for criminal offenses. This list does not include juvenile offenders, SILD (Sheriff Inmate Labor Detail), or Work Release. This database is updated hourly so recent changes in the status of inmates may not be reflected in this online database. Inmate status can only be confirmed by phone, call (208) 454-7541 or in person.</p>
+    
+    <table id='current' class='jail'>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Arrest Date (Agency)</th>
+      <th>Statute/Charges</th>
+      <th></th>
+    </tr>
+    </table>
+  </div>
+
+
+  <script>
+    $(document).ready(function () {
+      // Send an AJAX request
+      $.getJSON("http://api.canyonco.org/Sheriff/JailRosterByLetter/A",
+          function (data) {
+            // for each result build the table
+            // TODO: use the jQuery functions for building html elements
+            $.each(data, function (key, val) {
+              var str = "<td>" + val.IDNumber + "</td>";
+              str += "<td><strong>" + val.LastName + ", " + val.FirstName + "</strong><br />" +val.VineLink+ "</td>";
+
+              var arrests = val.Arrests;
+
+              str += "<td><table class='arrest' width='100%'>";
+              $.each(val.Arrests, function (k, v) {
+
+                str += "<tr><td>" + v.ArrestDate + "</td></tr>";
+              });
+
+              str += "</table></td>";
+
+              var charges = val.Charges;
+
+              str += "<td><table class='charge' width='100%'>";
+              $.each(charges, function (k, v) {
+
+                str += "<tr><td>" + v.StatuteCode + "</td><td>" + v.StatuteDesc + "</td></tr>";
+              });
+
+              str += "</table></td>";
+
+              str += "<td><a href='" + val.ImageFull + "' alt='View Larger'><img src='"+ val.ImageThumb+"'></a></td>";
+
+              str += "</tr>";
+
+              $('<tr>', { html: str }).appendTo($('#current'));
+            });
+          });
+    });
+  </script>
+</body>
+</html>
