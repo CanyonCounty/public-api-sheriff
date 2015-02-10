@@ -9,7 +9,7 @@ import json
 
 if __name__ == "__main__":
   # get the arrest data
-  roster = urllib.urlopen("http://api.canyonco.org/Sheriff-Beta/JailRosterByLetter/A").read()
+  roster = urllib.urlopen("http://api.canyonco.org/Sheriff/JailRosterByLetter/A").read()
   # parse the JSON
   jsonData = json.loads(roster)
 
