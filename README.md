@@ -7,7 +7,7 @@ As time permits more examples will be created
 Currently we have the following, broken out by language
   - [python](python)
   - [Ruby](ruby)
-  - [HTML](html)
+  - [HTML/Javascript](html)
 
 ##Issues
 We're currently using [CORS](http://enable-cors.org/) to deliver information. Your code may or may not work unless it understands CORS.
