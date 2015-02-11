@@ -2,7 +2,7 @@
 Example usage of the Sheriff Public API using Java
 
 ##Prerequisite
-  - [Get Python](http://www.java.com/) for your platform
+  - [Get Java](http://www.oracle.com/technetwork/java/javase/downloads/index.html) for your platform (used jdk 8u25)
   - [json-simple](https://code.google.com/p/json-simple/) - if this project disapears I can add the .jar to github
 
 ##Example
