@@ -7,6 +7,7 @@ Example usage of the Sheriff Public API using Java
 
 ##Example
 This was only a simple demo using java 1.8.0_25 on Windows
+
 As long as java and javac are in your path the following will work
 
 ```
