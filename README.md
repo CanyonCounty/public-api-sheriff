@@ -10,6 +10,7 @@ Currently we have the following, broken out by language
   - [HTML/Javascript](html)
   - [C#](csharp)
   - [Java](java)
+  - [perl](perl)
 
 ##Issues
 We're currently using [CORS](http://enable-cors.org/) to deliver information. Your code may or may not work unless it understands CORS.
