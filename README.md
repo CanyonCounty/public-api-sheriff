@@ -12,6 +12,7 @@ Currently we have the following, broken out by language
   - [Java](java)
   - [perl](perl)
   - [VB.net](dotnet)
+  - [F#](dotnet)
 
 ##Issues
 We're currently using [CORS](http://enable-cors.org/) to deliver information. Your code may or may not work unless it understands CORS.
