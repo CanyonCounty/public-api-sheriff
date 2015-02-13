@@ -1,0 +1,3 @@
+[submodule "php/wp-CurrentArrests"]
+	path = php/wp-CurrentArrests
+	url = git@github.com:CanyonCounty/wp-CurrentArrests.git

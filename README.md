@@ -13,6 +13,7 @@ Currently we have the following, broken out by language
   - [perl](perl)
   - [VB.net](dotnet)
   - [F#](dotnet)
+  - [PHP (wordpress shortcode)](php/wp-CurrentArrests)
 
 ##Issues
 We're currently using [CORS](http://enable-cors.org/) to deliver information. Your code may or may not work unless it understands CORS.
